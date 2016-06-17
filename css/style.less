@@ -1,0 +1,111 @@
+@import (less) "reset.css";
+
+body{
+  font-family: sans-serif;
+}
+
+.centerBlock(@mT, @mL){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: @mT;
+  margin-left: @mL;
+}
+
+.wrapper{
+  .centerBlock(-20%, -20%);
+}
+
+.ball{
+  width: 500px;
+  height: 500px;
+  position: relative;
+  background: linear-gradient(to top right, #000000, #151425, #292841, #403e5b);
+  border-radius: 50%;
+  box-shadow: -10px 10px 20px 5px #757575;
+  .wrapper{
+    width: 250px;
+    height: 250px;
+    .centerBlock(-125px, -125px);
+  }
+  animation-name: animationStart;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+.b-window{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(to top right, #000000, #19181e, #2b2b2d, #303132);
+  border: 2px solid #5f6382;
+}
+
+.b-result{
+    width: 100px;
+    height: 55px;
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+  box-shadow: 0 0 5px 1px black;
+  .centerBlock(-30px, -48.5px);
+    background: #523d7a;
+    position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid #523d7a;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid #523d7a;
+  }
+}
+
+.hotSpot{
+  position: absolute;
+  top: 20%;
+  right: 20%;
+  background: linear-gradient(to top right, #d3d3d3, #dfe1df, #e6e3e3, #ffffff);
+  border-radius: 50%;
+  &.big{
+    width: 20px;
+    height: 20px;
+  }
+  &.little{
+    width: 10px;
+    height: 10px;
+    top: 23%;
+    right: 20%;
+  }
+}
+
+@keyframes animationStart {
+  from{
+    transform: scale(.1);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+
+
+
